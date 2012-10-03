@@ -1,3 +1,6 @@
+<html>
+<body>
+
 <?php
 
 if(!isset($_SESSION)) {
@@ -78,7 +81,7 @@ if($_POST[AddAddr]) {
 	print("</pre>");
 	$cpid = $client->AddAddress($_POST,$authenticate[token]);
 
-	if($cpid[error_meaasge]) {
+	if($cpid[error_message]) {
 		print("Error - ".$cpid[error_message]);
 	} else {
 		print("Address added with ID $cpid[results]");
@@ -111,6 +114,7 @@ if($_POST[ShowPrice]) {
 	// First, validate the collivery data
 	// Be away that collection or delivery dates may change due to service contraints of Towns or Holidays
 	// There is also a minimum time frame for every From -> To Town combiniation.
+
 	$VALIDATE = $client->CheckColliveryData($_POST,$authenticate[token]);
 	// check if it passed validation. Only request pricing if validation passed.
 	if($VALIDATE[results][REJECTED]) {
@@ -241,7 +245,7 @@ $ServicesType = $client->getServices($authenticate[token]);
 if(!$_POST[service]) { $_POST[service] = 3; }
 print("<fieldset>");
 print("<legend style=\"font-weight:bold;\">Service Type</legend>");
-foreach ($ServicesType as $key => $value) {
+foreach ($ServicesType['results'] as $key => $value) {
 	if($_POST[service] == $key) { $checked = "checked"; } else { $checked = ""; }
 	print("<input type=\"radio\" name=\"service\" value=\"$key\" $checked >");
 	print("$value&nbsp&nbsp&nbsp");
@@ -301,12 +305,13 @@ $CP_Type = $client->getCPTypes($authenticate[token]);
 	</tr>
 	<tr>
 		<td>Location Type</td>
-		<td><select name="CP_Type">
-		<option>
-		<?php
-		put_options_key_data($CP_Type[results],null,$_POST[CP_Type]);
-		?>
-		</select></td>
+		<td>
+			<select name="CP_Type">
+			<?php
+				put_options_key_data($CP_Type[results],null,$_POST[CP_Type]);
+			?>
+			</select>
+		</td>
 		</tr>
 		<tr>
 			<td>Address ID:</td>
@@ -316,26 +321,29 @@ $CP_Type = $client->getCPTypes($authenticate[token]);
 		</tr>
 		<tr>
 			<td>Town:</td>
-			<td><select name="TownBrief" onchange="form.mapID.value=''; submit()">
-			<option>
-			<? put_options_key_data($Towns[results],null,$_POST['TownBrief']); ?>
-			</select>
+			<td>
+				<select name="TownBrief" onchange="form.mapID.value=''; submit()">
+				<?php
+					put_options_key_data($Towns[results],null,$_POST['TownBrief']);
+				?>
+				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>Suburb:</td>
-			<td><select name="mapID">
-			<option>
-			<?
-			if($_POST['TownBrief'] != '')
-			{
-				put_options_key_data($Suburbs[results],null,$_POST[mapID]);
-			}
-			else
-			{
-				print("Please select Town First");
-			}
-			?>
+			<td>
+				<select name="mapID">
+					
+				<?php
+					if($_POST['TownBrief'] != '')
+					{
+						put_options_key_data($Suburbs[results],null,$_POST[mapID]);
+					}
+					else
+					{
+						print("<option>Please select Town First</option>");
+					}
+				?>
 				</select>
 			</td>
 		</tr>
@@ -343,7 +351,6 @@ $CP_Type = $client->getCPTypes($authenticate[token]);
 		<tr>
 			<td>Building Details:</td>
 			<td><input size=50 type=text name="building" value="<?=$_POST['building']?>"></td>
-		</td>
 		</tr>
 		<tr>
 			<td>Street No.</td>
@@ -377,7 +384,7 @@ $CP_Type = $client->getCPTypes($authenticate[token]);
 	</tr>
 	<tr>
 		<td>Email Address:</td>
-		<td><input type=text size="30" name="emailAddr" value=<?print($_POST['emailAddr']);?>></td>
+		<td><input type=text size="30" name="emailAddr" value="<?print($_POST['emailAddr']);?>"></td>
 	</tr>
 	</table> <!-- Contact Table  -->
 	</fieldset>
