@@ -111,7 +111,7 @@ if ($_POST[ShowPrice]) {
 	$_POST[exlude_weekend] = 1;
 
 	// First, validate the collivery data
-	// Be away that collection or delivery dates may change due to service contraints of Towns or Holidays
+	// Be aware that collection or delivery dates may change due to service contraints of Towns or Holidays
 	// There is also a minimum time frame for every From -> To Town combiniation.
 
 	$VALIDATE = $client -> CheckColliveryData($_POST, $authenticate[token]);
