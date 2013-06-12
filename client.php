@@ -227,6 +227,7 @@ print("Num Packages : <input type=\"text\" size=\"6\" name=\"num_package\" value
 print("&nbsp;&nbsp;&nbsp; Weight : <input type=\"text\" size=\"6\" name=\"weight\" value=\"$_POST[weight]\">");
 print("&nbsp;&nbsp;&nbsp; Volumetric Weight : <input type=\"text\" size=\"6\" name=\"vol_weight\" value=\"$_POST[vol_weight]\">");
 print("</div>");
+print("</fieldset>");
 
 // You may also pass an array of parcel dimensions into the Validation and Add collivery functions.
 // The validation process will calculate the volumetric sizes of each box and return to you in an array
