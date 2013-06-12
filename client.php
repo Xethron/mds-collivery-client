@@ -373,17 +373,17 @@ $CP_Type = $client -> getCPTypes($authenticate['token']);
 				<table cellpadding=2 cellspacing=2> <!-- Contact Table -->
 					<tr>
 						<td>Contact Person</td>
-						<td colspan="2">
+						<td>
 							<input type="text" size="30" name="fname" value="<?print($_POST['fname']); ?>">
 						</td>
 					</tr>
 					<tr>
 						<td>Work number:</td>
-						<td colspan="2"><input type="text" name="workNo" value="<?print($_POST['workNo']); ?>"></td>
+						<td><input type="text" name="workNo" value="<?print($_POST['workNo']); ?>"></td>
 					</tr>
 					<tr>
 						<td>Cell number:</td>
-						<td colspan="2"><input type="text" name="cellNo" value="<?print($_POST['cellNo']); ?>"></td>
+						<td><input type="text" name="cellNo" value="<?print($_POST['cellNo']); ?>"></td>
 					</tr>
 					<tr>
 						<td>Email Address:</td>
