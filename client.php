@@ -220,13 +220,13 @@ foreach ($ParcelType['results'] as $key => $value) {
 	if ($_POST['collivery_type'] == $key) { $checked = "checked";
 	} else { $checked = "";
 	}
-	print("<input type=\"radio\" name=\"collivery_type\" value=\"$key\" $checked>$value[type_text]&nbsp&nbsp&nbsp");
+	print("<input type=\"radio\" name=\"collivery_type\" value=\"$key\" $checked>$value[type_text]&nbsp;&nbsp;&nbsp;");
 }
 print("</div>");
 print("<div>");
 print("Num Packages : <input type=\"text\" size=\"6\" name=\"num_package\" value=\"$_POST[weight]\">");
-print("&nbsp&nbsp&nbsp Weight : <input type=\"text\" size=\"6\" name=\"weight\" value=\"$_POST[weight]\">");
-print("&nbsp&nbsp&nbsp Volumetric Weight : <input type=\"text\" size==\"6\" name=\"vol_weight\" value=\"$_POST[vol_weight]\">");
+print("&nbsp;&nbsp;&nbsp; Weight : <input type=\"text\" size=\"6\" name=\"weight\" value=\"$_POST[weight]\">");
+print("&nbsp;&nbsp;&nbsp; Volumetric Weight : <input type=\"text\" size=\"6\" name=\"vol_weight\" value=\"$_POST[vol_weight]\">");
 print("</div>");
 
 // You may also pass an array of parcel dimensions into the Validation and Add collivery functions.
@@ -253,7 +253,7 @@ foreach ($ServicesType['results'] as $key => $value) {
 	} else { $checked = "";
 	}
 	print("<input type=\"radio\" name=\"service\" value=\"$key\" $checked >");
-	print("$value&nbsp&nbsp&nbsp");
+	print("$value &nbsp;&nbsp;&nbsp;");
 }
 print("</fieldset>");
 
