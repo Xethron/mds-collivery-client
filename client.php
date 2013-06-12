@@ -263,7 +263,7 @@ print("Cover to value of :&nbsp;");
 // Standard Risk Cover is R12 per R1000 value
 $insur_val = $client -> getCoverValues($authenticate['token']);
 print("<select name=\"insurance\">");
-put_options_key_data($insur_val, null, $_POST['insurance']);
+put_options_key_data($insur_val['results'], null, $_POST['insurance']);
 print("</select>");
 print("&nbsp;&nbsp;Customer Ref : ");
 print("<input size=\"20\" type=\"text\" name=\"cust_ref\" value=\"$_POST[cust_ref]\">");
