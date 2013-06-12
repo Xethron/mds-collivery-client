@@ -195,7 +195,6 @@ $Addresses = $getAddressArray['results'];
 print("<fieldset>");
 print("<legend style=\"font-weight:bold;\">Delivery Details</legend>");
 print("<select name=\"collivery_to\" onchange=\"submit();\">");
-print("<option>");
 put_options_key_data($Addresses, "nice_address", $_POST['collivery_to']);
 print("</select>");
 
