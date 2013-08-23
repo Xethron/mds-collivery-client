@@ -29,8 +29,8 @@
 	$info = array(
 		'name' => 'Default Application Name', // Unique Identifier for your application
 		'version'=> '0.0.1', // Current version of your application
-		'host' => 'Wordpress 3.6 - PHP 5.3.3', // Any extra information on what your application (Especially useful for plugins) are running on.
-		// You can add any additional information here like the OS it is running on, etc...
+		'host' => 'Wordpress 3.6', // Any extra information on what your application (Especially useful for plugins) are running on.
+		'lang' => 'PHP '. phpversion(), // Programming Language Used to communicate via SOAP
 	);
 
 	/**
