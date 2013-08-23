@@ -126,6 +126,21 @@
 	print_r($result);//*/
 
 	/**
+	 * Get Services
+	 * 
+	 * Returns an array of the available Collivery Service Types.
+	 * 
+	 * @link http://www.collivery.co.za/wsdocs/#get_services
+	 */
+	echo "<h1>get_services:</h1>";
+	try{
+		$result = $client->get_services($_SESSION['token']);
+	} catch (SoapFault $e){
+		print_r($e);
+	}
+	print_r($result);//*/
+
+	/**
 	 * Get Address
 	 * 
 	 * Returns all the information of a single address ID.
